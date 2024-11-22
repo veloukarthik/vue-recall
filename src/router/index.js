@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import PostView from '../views/PostView.vue'
+import CounterView from '../views/CounterView.vue'
+import ItemView from '../views/ItemView.vue'
 
 const routes = [
   {
@@ -20,6 +22,19 @@ const routes = [
     path: '/posts',
     name: 'post',
     component: PostView,
+    props: true
+  },
+  {
+    path: '/items',
+    name: 'item',
+    component: ItemView,
+    props: true
+
+  },
+  {
+    path: '/counter',
+    name: 'counter',
+    component: CounterView,
     props: true
   }
 ]
