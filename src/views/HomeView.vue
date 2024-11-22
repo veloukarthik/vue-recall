@@ -71,13 +71,6 @@ export default {
     };
   },
   methods: {
-    addUsers() {
-      this.users.push({ id: this.users.length + 1, name: this.name });
-      this.name = "";
-    },
-    deleteUsers(index) {
-      this.users.splice(index, 1);
-    },
     addEmployee(){
 
       if(this.newEmployee.name == "" && this.newEmployee.email == "")
