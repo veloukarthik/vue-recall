@@ -1,18 +1,47 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>{{ title }}</h1>
+    <div v-for="user in users" :key="user.id" @click="deleteUsers(index)">
+      {{ user.name }}
+    </div>
+    <input v-model="name" placeholder="Enter Name">
+    <button @click="addUsers">Add User</button>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+
 
 export default {
   name: 'HomeView',
   components: {
-    HelloWorld
+
+  },
+  data() {
+    return {
+      title: 'List Users',
+      users: [{ id: 1, name: 'Karthik' }, { id: 2, name: 'Rithik' }],
+      name: ""
+    }
+  },
+  methods: {
+    addUsers() {
+      this.users.push({ id: this.users.length + 1, name: this.name })
+      this.name = "";
+    },
+    deleteUsers(index) {
+      this.users.splice(index, 1);
+    }
+  },
+  created() {
+    console.log('App created')
+  },
+  mounted() {
+    console.log('App mounted')
+  },
+  updated() {
+    console.log('App updated')
   }
 }
 </script>
